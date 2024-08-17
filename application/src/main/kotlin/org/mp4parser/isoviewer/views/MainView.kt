@@ -230,7 +230,7 @@ class MainView : View("ISO Viewer") {
                             isSortable = false
                             prefWidth = 400.0
                         }
-                        column("................", String::class) {
+                        column("0123456789ABCDEF", String::class) {
                             isSortable = false
                             prefWidth = 150.0
                             value { param ->
@@ -238,8 +238,8 @@ class MainView : View("ISO Viewer") {
                                 val itra = param.value.iterator()
                                 while (itra.hasNext()) {
                                     val b = itra.nextByte()
-                                    s += if (Character.isLetterOrDigit(b.toInt())) {
-                                        Character.forDigit(b.toInt(), 10)
+                                    s += if (Character.isLetterOrDigit(b.toInt()) || b.toInt() == 0x20) {
+                                        b.toInt().toChar()
                                     } else {
                                         '.'
                                     }
