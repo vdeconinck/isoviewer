@@ -110,7 +110,7 @@ class MainView : View("ISO Viewer") {
         var size = box.size
         ByteBuffer.allocate(16).array()
         while (size > 0) {
-            val buf = ByteArray(Math.min(16, size.toInt()))
+            val buf = ByteArray(Math.min(16, size).toInt())
             if (hexLines.size > 1000) {
                 break
             }
